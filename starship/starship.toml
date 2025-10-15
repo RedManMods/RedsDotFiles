@@ -1,0 +1,64 @@
+# ~/.config/starship.toml
+
+# Don’t print an extra blank line before the prompt
+add_newline = false
+
+# Compact, single-line prompt
+format = """
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$python\
+$cmd_duration\
+$status\
+$character
+"""
+
+[hostname]
+ssh_only = true
+style = "bold purple"
+format = "[$hostname]($style) "
+
+[directory]
+truncation_length = 3
+truncation_symbol = "…/"
+style = "cyan"
+
+[git_branch]
+symbol = " "
+style = "bright-black"
+format = "[$symbol$branch]($style) "
+
+[git_state]
+format = '[\($state( $count)\)](yellow) '
+
+[git_status]
+format = '([\($all_status$ahead_behind\)])'
+style = "dim"
+
+[cmd_duration]
+min_time = 2_000
+format = "[$duration]($style) "
+style = "yellow"
+
+[status]
+format = '[$symbol]($style) '
+symbol         = "[✘](red) "
+success_symbol = "[✔](green) "
+style          = "bold red"
+success_style  = "bold green"
+disabled       = false
+recognize_signal_code = true
+map_symbol            = false
+
+[character]
+success_symbol = "[❯](bold green) "
+error_symbol   = "[❯](bold red) "
+vicmd_symbol   = "[❮](bold yellow) "
+
+[python]
+symbol = "🐍 "
+pyenv_version_name = true
+format = 'venv [${symbol}${version}(\($virtualenv\))]($style) '
