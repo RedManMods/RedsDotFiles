@@ -194,6 +194,47 @@ setup_zshrc_from_repo() {
   fi
 }
 
+ensure_ohmyzsh() {
+  if [ -d "$HOME/.oh-my-zsh" ]; then
+    ok "oh-my-zsh already installed."
+    return 0
+  fi
+  msg "Installing oh-my-zsh (non-interactive)..."
+  # Non-interactive install; keeps your current shell and zshrc
+  RUNZSH=no CHSH=no KEEP_ZSHRC=yes sh -c \
+    "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" || {
+      warn "oh-my-zsh install failed (no internet?) — skipping."
+      return 0
+    }
+  ok "oh-my-zsh installed."
+}
+
+install_zsh_theme() {
+  local src="$DOTFILES/zsh/themes/agnosterzak.zsh-theme"
+  local dst_dir="$HOME/.oh-my-zsh/themes"
+  local dst="$dst_dir/agnosterzak.zsh-theme"
+
+  if [ ! -f "$src" ]; then
+    warn "Theme not found in repo: $src — skipping."
+    return 0
+  fi
+  ensure_dir "$dst_dir"
+  cp -v "$src" "$dst"
+  ok "Theme installed to $dst"
+}
+
+ensure_zsh_theme_selected() {
+  local zrc="$HOME/.zshrc"
+  touch "$zrc"
+  # If ZSH_THEME exists, replace its value; otherwise append a line.
+  if grep -q '^ZSH_THEME=' "$zrc"; then
+    sed -i 's/^ZSH_THEME=.*/ZSH_THEME="agnosterzak"/' "$zrc"
+  else
+    printf '\nZSH_THEME="agnosterzak"\n' >> "$zrc"
+  fi
+  ok 'ZSH_THEME set to "agnosterzak" in ~/.zshrc'
+}
+
 main() {
   msg "Using DOTFILES at: $DOTFILES"
 
@@ -212,6 +253,10 @@ main() {
   else
     warn "Skipping fonts install (--no-fonts)"
   fi
+
+  ensure_ohmyzsh
+  install_zsh_theme
+  ensure_zsh_theme_selected
 
   msg "✅ Done."
   echo "👉 Reload shell:  exec zsh"
