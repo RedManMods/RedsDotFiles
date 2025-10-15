@@ -41,9 +41,3 @@ alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
 
-# For my scripts
-alias switchnand=". $HOME/Documents/Utils/scripts/switch_nand.sh"
-
-# My FastFetch
-alias fastfetch="$HOME/Documents/my_fastfetch/fetch.sh"
-alias neofetch="$HOME/Documents/my_fastfetch/fetch.sh"
