@@ -41,3 +41,5 @@ alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
 
+export STARSHIP_CONFIG="$HOME/.config/starship.toml"
+eval "$(starship init zsh)"
