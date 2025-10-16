@@ -11,6 +11,7 @@ plugins=(
     dnf
     zsh-autosuggestions
     zsh-syntax-highlighting
+    zsh-history-substring-search
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -46,7 +47,7 @@ alias lt='ls --tree'
 alias switchnand=". $HOME/Documents/Utils/scripts/switch_nand.sh"
 
 # My FastFetch
-alias fastfetch="$HOME/Documents/my_fastfetch/fetch.sh"
-alias neofetch="$HOME/Documents/my_fastfetch/fetch.sh"
+alias fastfetch="$HOME/Documents/myfetch/fetch.sh"
+alias neofetch="$HOME/Documents/myfetch/fetch.sh"
 
 eval "$(starship init zsh)"
