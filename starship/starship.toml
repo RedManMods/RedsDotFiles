@@ -3,10 +3,10 @@
 # Don’t print an extra blank line before the prompt
 add_newline = false
 
-# Compact, single-line prompt
+# Compact, single-line prompt  🐧 
 format = """
 [](bg:#030B16ff fg:#7DF9AA)\
-[🐧 ](bg:#7DF9AA fg:#090c0c)\
+[ ](bg:#7DF9AA fg:#090c0c)\
 [](fg:#7DF9AA bg:#1C3A5E)\
 $time\
 $username\
@@ -34,6 +34,9 @@ style = "bg:1d2230"
 format = "[[ ⛉ $hostname ](bg:#1C3A5E fg:#8DFBD2)]($style)"
 
 [directory]
+truncation_length = 0
+truncate_to_repo = false
+home_symbol = "~"
 format = "[ $path ]($style)"
 style = "fg:#E4E4E4 bg:#3B76F0"
 
