@@ -3,7 +3,7 @@
 # Don’t print an extra blank line before the prompt
 add_newline = false
 
-# Compact, single-line prompt  🐧 
+# Compact, single-line prompt   🐧 
 format = """
 [](bg:#030B16ff fg:#7DF9AA)\
 [ ](bg:#7DF9AA fg:#090c0c)\
