@@ -93,6 +93,7 @@ install_required_packages() {
   ensure_pkg kitty      kitty
   ensure_pkg starship   starship
   ensure_pkg git        git
+
   # font cache tool
   if ! have fc-cache; then
     msg "Installing: fontconfig"
@@ -102,8 +103,8 @@ install_required_packages() {
   fi
   # used by .zshrc aliases
   ensure_pkg lsd        lsd || true
-  # requested
   ensure_pkg fastfetch  fastfetch || true
+  ensure_pkg fzf	fzf || true
 }
 
 # ── fonts ──────────────────────────────────────────────────────────────────────
