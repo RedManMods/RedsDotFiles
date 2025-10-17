@@ -49,16 +49,10 @@ fi
 source $ZSH/oh-my-zsh.sh
 
 # For my scripts
-alias switchnand=". $HOME/Documents/Utils/scripts/switch_nand.sh"
-
-# My FastFetch
 alias fastfetch="$HOME/Documents/myfetch/fetch.sh"
 alias neofetch="$HOME/Documents/myfetch/fetch.sh"
 
 # Functions
-autoload -Uz colors && colors   # Enables colors for terminal.
-
-# --- Custom Pokemon-script fetch ---
 pokefetch() {
     local artfile
     artfile="$(mktemp)"
@@ -72,19 +66,9 @@ pokefetch() {
     rm -f "$artfile"
 }
 
-# Connect to reds vps
-redsvps() {
- local user="senpai"
- local ip="64.62.199.196"
-
- echo "🖥 Connecting to redsvps..."
- ssh "$user"@"$ip"
-}
-
 # Auto-run when a new terminal opens
 clear
 fastfetch
-#pokefetch
 
 # --- Starship prompt (must stay last) ---
 eval "$(starship init zsh)"
