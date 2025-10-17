@@ -83,7 +83,8 @@ redsvps() {
 
 # Auto-run when a new terminal opens
 clear
-pokefetch
+fastfetch
+#pokefetch
 
 # --- Starship prompt (must stay last) ---
 eval "$(starship init zsh)"
