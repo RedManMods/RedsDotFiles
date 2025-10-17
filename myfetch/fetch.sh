@@ -1,4 +1,4 @@
-export ZSH="$HOME/.oh-my-zsh"
+#!/usr/bin/env zsh
 
 # --- Custom Pokemon-script fetch ---
 pokefetch() {
