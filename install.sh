@@ -67,8 +67,8 @@ pm_install() {
     sudo dnf5 install -y "$@"
   elif have dnf; then
     sudo dnf install -y "$@"
-  elif have apt; then
-    sudo apt update -y
+  elif have apt-get; then
+    sudo apt update
     sudo apt install -y "$@"
   else
     err "No supported package manager (dnf5/dnf/apt). Install manually: $*"
@@ -105,6 +105,7 @@ install_required_packages() {
   ensure_pkg lsd        lsd || true
   ensure_pkg fastfetch  fastfetch || true
   ensure_pkg fzf	fzf || true
+  ensure_pkg curl curl || true
 }
 
 # ── fonts ──────────────────────────────────────────────────────────────────────
