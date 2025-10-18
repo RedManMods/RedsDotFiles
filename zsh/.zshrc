@@ -30,13 +30,6 @@ setopt HIST_IGNORE_ALL_DUPS     # remove older dupes
 setopt HIST_REDUCE_BLANKS
 setopt HIST_VERIFY
 
-# Set-up icons for files/directories in terminal using lsd
-alias ls='lsd'
-alias l='ls -l'
-alias la='ls -a'
-alias lla='ls -la'
-alias lt='ls --tree'
-
 # --- Completion engine ---
 autoload -Uz compinit
 # rebuild cache fast if needed
@@ -47,6 +40,13 @@ else
 fi
 
 source $ZSH/oh-my-zsh.sh
+
+# Set-up icons for files/directories in terminal using lsd
+alias ls='lsd'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
 
 # For my scripts
 alias fastfetch="$HOME/Documents/myfetch/fetch.sh"
