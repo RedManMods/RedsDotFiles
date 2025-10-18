@@ -68,10 +68,13 @@ pm_install() {
   elif have dnf; then
     sudo dnf install -y "$@"
   elif have apt-get; then
-    sudo apt update
-    sudo apt install -y "$@"
+    sudo apt-get update
+    sudo apt-get install -y "$@"
+  elif have pacman; then
+    sudo pacman -Sy --noconfirm
+    sudo pacman -S --needed --noconfirm "$@"
   else
-    err "No supported package manager (dnf5/dnf/apt). Install manually: $*"
+    err "No supported package manager (dnf5/dnf/apt-get/pacman). Install manually: $*"
     return 1
   fi
 }
